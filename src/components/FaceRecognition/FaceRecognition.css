@@ -1,0 +1,21 @@
+.bounding-box {
+  position: absolute;
+  box-shadow: 0 0 0 2px purple, inset 0 0 10px #000000;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  cursor: pointer;
+  background:
+  linear-gradient(to right, black 1px, transparent 4px) 0 0,
+  linear-gradient(to right, black 1px, transparent 4px) 0 100%,
+  linear-gradient(to left, black 1px, transparent 4px) 100% 0,
+  linear-gradient(to left, black 1px, transparent 4px) 100% 100%,
+  linear-gradient(to bottom, black 1px, transparent 4px) 0 0,
+  linear-gradient(to bottom, black 1px, transparent 4px) 100% 0,
+  linear-gradient(to top, black 1px, transparent 4px) 0 100%,
+  linear-gradient(to top, black 1px, transparent 4px) 100% 100%;
+
+background-repeat: no-repeat;
+background-size: 20px 20px;
+}
+
