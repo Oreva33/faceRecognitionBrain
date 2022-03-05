@@ -54,6 +54,14 @@ class App extends Component {
     }})
   }
 
+  componentDidUpdate(prevProps,prevState){
+    if(prevState.input !== this.state.input){
+      this.setState({box: []});
+      this.setState({imageUrl: ""})
+    }
+
+  }
+
   calculateFaceLocation = (data) => {
     const boxes = []
     const image = document.getElementById('inputimage');
@@ -77,7 +85,12 @@ class App extends Component {
 }
 
   displayFaceBox = (box) => {
-    this.setState({box: box});
+    this.setState((x) =>{
+      let y = x.box
+      y.length = 0
+      y = box.concat(y)
+      return {box: y}
+    });
   }
 
   onInputChange = (event) => {
@@ -128,6 +141,7 @@ class App extends Component {
 
   render() {
     const { isSignedIn, imageUrl, route, box, num} = this.state;
+  
     return (
       <div className="App">
          <Particles className='particles'
