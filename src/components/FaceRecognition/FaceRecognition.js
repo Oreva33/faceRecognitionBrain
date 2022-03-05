@@ -2,14 +2,18 @@ import React from "react";
 import "./FaceRecognition.css";
 
 const FaceRecognition = ({ imageUrl, box }) => {
-  console.log(box)
+  console.log(box);
   return (
     <div className="center ma">
       <div className="absolute mt2">
         {box.length === 0 && !imageUrl ? (
           <p></p>
         ) : box.length === 0 && imageUrl ? (
-          <p className="load">loading...</p>
+          <p>
+            
+       <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+       
+          </p>
         ) : box.length > 0 && imageUrl ? (
           <div>
             {box.map((boxitem) => {
@@ -38,6 +42,3 @@ const FaceRecognition = ({ imageUrl, box }) => {
 };
 
 export default FaceRecognition;
-
-
-
