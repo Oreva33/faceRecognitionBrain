@@ -2,13 +2,17 @@ import React from "react";
 import "./FaceRecognition.css";
 
 const FaceRecognition = ({ imageUrl, box }) => {
-  console.log(box);
+  const h = "https://" || "http://";
   return (
     <div className="center ma">
       <div className="absolute mt2">
         {box.length === 0 && !imageUrl ? (
           <p></p>
-        ) : box.length === 0 && imageUrl ? (
+        ) : box.length === 0 && !imageUrl.includes(h) ? (
+          <p className="error-text">
+         Invalid Address 
+          </p>
+        ) :box.length === 0 && imageUrl ? (
           <p>
             
        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
@@ -32,7 +36,7 @@ const FaceRecognition = ({ imageUrl, box }) => {
             })}
           </div>
         ) : (
-          <p> </p>
+          <p> Something went wrong</p>
         )}
 
         <img id="inputimage" alt="" src={imageUrl} width="500px" heigh="auto" />
